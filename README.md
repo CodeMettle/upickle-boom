@@ -1,7 +1,9 @@
 Demonstration of upickle exploding (in the real project, after I change the `model` project and incrementally compile,
  it will often start working until the next clean).
 
-Could possibly be scala-js related and not really upickle, since it sometimes works.
+~~Could possibly be scala-js related and not really upickle, since it sometimes works.~~
+
+I've now removed scala-js from the build with the same result.
 
 upickle 0.3.5 on Scala 2.11.7 with JDK8 on OSX
 
@@ -14,20 +16,20 @@ Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; sup
 [info] Loading global plugins from /Users/steven/.sbt/0.13/plugins
 [info] Loading project definition from /Users/steven/dev/upickle-boom/project
 [info] Set current project to upickle-boom (in build file:/Users/steven/dev/upickle-boom/)
-[success] Total time: 0 s, completed Aug 11, 2015 4:34:12 PM
-[info] Updating {file:/Users/steven/dev/upickle-boom/}modelJVM...
+[success] Total time: 0 s, completed Aug 11, 2015 4:39:45 PM
+[info] Updating {file:/Users/steven/dev/upickle-boom/}model...
 [info] Resolving jline#jline;2.12.1 ...
 [info] Done updating.
 [info] Updating {file:/Users/steven/dev/upickle-boom/}main...
 [info] Resolving jline#jline;2.12.1 ...
 [info] Done updating.
-[info] Compiling 1 Scala source to /Users/steven/dev/upickle-boom/model/.jvm/target/scala-2.11/classes...
+[info] Compiling 1 Scala source to /Users/steven/dev/upickle-boom/model/target/scala-2.11/classes...
 [info] Compiling 1 Scala source to /Users/steven/dev/upickle-boom/main/target/scala-2.11/classes...
 [info] Running boom.Test 
 
 This seems to always work:
 
-AHolder1(MyThing(2b4449e4-049e-4f14-8f42-8dc3bd908632,24c3e2dd-01b2-41ae-89f7-c522334a524b,name,None,Map(a -> b),00069f2b-d7d4-4548-8480-6695795ad055))
+AHolder1(MyThing(2d7855d2-9479-45d6-b27b-bb00ed4c6caa,520c405f-8a4e-44f2-a6fc-acbc57ee19b7,name,None,Map(a -> b),3ca89bfa-cf7a-4187-9436-700bd57821d9))
 
 This seems to always fail:
 
@@ -72,5 +74,5 @@ java.lang.RuntimeException: Nonzero exit code: 1
 	at scala.sys.package$.error(package.scala:27)
 [trace] Stack trace suppressed: run last main/compile:run for the full output.
 [error] (main/compile:run) Nonzero exit code: 1
-[error] Total time: 9 s, completed Aug 11, 2015 4:34:21 PM
+[error] Total time: 9 s, completed Aug 11, 2015 4:39:54 PM
 ```
